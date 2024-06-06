@@ -15,6 +15,7 @@ public class GlidingState : MonoBehaviour, ILocomotionState
     public void StartState()
     {
         _glider.SetActive(true);
+        _characterLocomotion.accessAudioManager().GlidingSound();
     }
 
     public void StartJump()

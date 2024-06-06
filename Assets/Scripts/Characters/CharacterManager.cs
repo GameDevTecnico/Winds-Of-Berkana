@@ -7,6 +7,15 @@ public class CharacterManager : MonoBehaviour
     protected CharacterAnimation CharacterAnimation;
     protected CharacterController CharacterController;
 
+    [HideInInspector]
+    public AudioManager audioManager;
+
+
+    public void Start()
+    {
+        audioManager = GameObject.Find("AudioManager")?.GetComponent<AudioManager>();
+
+    }
     public void SetCanMove(bool canMove)
     {
         CharacterController.enabled = canMove;
@@ -38,6 +47,7 @@ public class CharacterManager : MonoBehaviour
         if (_canMove)
         {
             CharacterLocomotion.Walk(walk);
+            audioManager.WalkSound();
         }
     }
 
